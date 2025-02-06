@@ -1,6 +1,9 @@
+import _self.*
+
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.ui.*
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
+
 
 object SubProject1_TestCommands : BuildType({
     name = "TestCommands"
