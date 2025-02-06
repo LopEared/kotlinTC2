@@ -1,3 +1,5 @@
+import jetbrains.buildServer.configs.kotlin.*
+
 object SubProject1_TestCommands : BuildType({
     name = "TestCommands"
     description = "TestCommands"
