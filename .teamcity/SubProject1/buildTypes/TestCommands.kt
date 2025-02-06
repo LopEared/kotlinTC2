@@ -5,8 +5,12 @@ object SubProject1_TestCommands : BuildType({
     name = "TestCommands"
     description = "TestCommands"
 
-    vcs {
-        root(DslContext.settingsRoot)
+    // vcs {
+    //     root(DslContext.settingsRoot)
+    // }
+
+    params {
+        text("inputeDbranch", "", label = "Confirm branch name:", display = ParameterDisplay.PROMPT, allowEmpty = false)
     }
 
     steps {
