@@ -1,4 +1,5 @@
 import jetbrains.buildServer.configs.kotlin.*
+import jetbrains.buildServer.configs.kotlin.ui.*
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
 object SubProject1_TestCommands : BuildType({
@@ -7,6 +8,7 @@ object SubProject1_TestCommands : BuildType({
 
     params {
         text("inputedbranch", "", label = "Confirm branch name:", display = ParameterDisplay.PROMPT, allowEmpty = false)
+        password("testPass", "credentialsJSON:3d93ad41-aacd-4523-8208-9f4cb2ca9531", label = "TestLabelCheckout", description = "TestDescription")
     }
 
     vcs {
