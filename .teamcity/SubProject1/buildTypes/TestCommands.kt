@@ -7,7 +7,6 @@ object SubProject1_TestCommands : BuildType({
 
     params {
         text("inputedbranch", "", label = "Confirm branch name:", display = ParameterDisplay.PROMPT, allowEmpty = false)
-        // password("password", "", label = "Input password to start build:", display = ParameterDisplay.PROMPT, allowEmpty = false)
     }
 
     vcs {
