@@ -10,6 +10,10 @@ object SubProject1_TestCommands : BuildType({
         password("password", "", label = "Input password to start build:", display = ParameterDisplay.PROMPT, allowEmpty = false)
     }
 
+    vcs {
+        root(DslContext.settingsRoot)
+    }
+
     steps {
         script {
             name = "SomeCommands"
