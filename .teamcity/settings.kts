@@ -56,6 +56,10 @@ object SubProject1_TestCommands : BuildType({
             scriptContent = """echo "New Nontes into files" >  %build.number%_%teamcity.build.branch%_testFile.txt"""
         }
     }
+
+    requirements {
+        equals("teamcity.agent.name", "ip_172.17.0.1")
+    }
 })
 
 
