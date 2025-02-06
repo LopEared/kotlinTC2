@@ -32,12 +32,6 @@ project {
     subProject(SubProject1)
 }
 
-
-
-
-
-
-
 object SubProject2 : Project({
     name = "SubProject_2"
     description = "SubProject_1"
