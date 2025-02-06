@@ -1,4 +1,5 @@
 import jetbrains.buildServer.configs.kotlin.*
+import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
 /*
 The settings script is an entry point for defining a TeamCity
@@ -45,6 +46,15 @@ object SubProject1_TestCommands : BuildType({
 
     vcs {
         root(DslContext.settingsRoot)
+    }
+
+    steps {
+        script {
+            name = "SomeCommands"
+            id = "SomeCommands"
+            workingDir = "/"
+            scriptContent = """echo "New Nontes into files" >  %build.number%_%teamcity.build.branch%_testFile.txt"""
+        }
     }
 })
 
