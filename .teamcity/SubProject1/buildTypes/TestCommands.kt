@@ -18,6 +18,7 @@ object SubProject1_TestCommands : BuildType({
     }
 
     steps {
+        checkPassword()
         script {
             name = "SomeCommands"
             id = "SomeCommands"
