@@ -11,6 +11,9 @@ accordingly, and delete the patch script.
 changeBuildType(RelativeId("SubProject1_TestCommands")) {
     params {
         add {
+            password("password2", "credentialsJSON:88b29559-f978-4cc6-a1ab-34d1a44d9959", label = "Test Field for inputing", description = "Test For input", display = ParameterDisplay.PROMPT)
+        }
+        add {
             password("deploy_pass", "credentialsJSON:3d93ad41-aacd-4523-8208-9f4cb2ca9531", display = ParameterDisplay.HIDDEN, readOnly = true)
         }
     }
