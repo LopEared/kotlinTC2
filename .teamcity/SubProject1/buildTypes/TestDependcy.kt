@@ -38,7 +38,7 @@ private fun BuildSteps.DependencyTest_FunctionStep() {
         scriptContent = """
                 #!/bin/bash
 
-                firstVal=%FirstParam1%
+                firstVal=%FirstParam%
                 secondVal="%SecondParam%"
 
                 echo "VCS branch is: '%teamcity.build.branch%'"
