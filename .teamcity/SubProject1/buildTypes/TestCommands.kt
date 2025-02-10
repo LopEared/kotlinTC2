@@ -20,6 +20,7 @@ object SubProject1_TestCommands : BuildType({
 
     steps {
         checkPassword()
+        confirmVcsBranch()
         script {
             name = "SomeCommands"
             id = "SomeCommands"
