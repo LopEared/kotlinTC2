@@ -6,4 +6,5 @@ object SubProject1 : Project({
     description = "SubProject_1"
 
     buildType(SubProject1_TestCommands)
+    buildType(DependencyConfig_Test)
 })

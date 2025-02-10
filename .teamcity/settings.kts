@@ -34,5 +34,5 @@ project {
 
 object SubProject2 : Project({
     name = "SubProject_2"
-    description = "SubProject_1"
+    description = "SubProject_2_Test_EMPTY_ITEM"
 })
