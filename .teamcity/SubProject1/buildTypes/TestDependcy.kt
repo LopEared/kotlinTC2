@@ -42,6 +42,7 @@ private fun BuildSteps.DependencyTest_FunctionStep() {
                 secondVal="%SecondParam%"
 
                 echo "VCS branch is: '%teamcity.build.branch%'"
+                echo "##teamcity[message text='<<< TEST ERROR MESSAGE!!! >>>' status='ERROR']"
 
                 echo "Nontes For Dependcy Build Configuiration: " >  %build.number%_%teamcity.build.branch%_testFile.txt
 
@@ -51,6 +52,8 @@ private fun BuildSteps.DependencyTest_FunctionStep() {
                 -----------------------
                 Env Wrote from BASH  First PARAM : $!firstVal
                 Env Wrote from BASH  First PARAM : $!secondVal
+                EOL
+
 
                 """.trimIndent().replace("$!", "$")
     }
