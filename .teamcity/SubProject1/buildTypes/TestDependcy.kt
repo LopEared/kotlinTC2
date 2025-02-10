@@ -28,32 +28,31 @@ object DependencyConfig_Test : BuildType({
     requirements {
         equals("teamcity.agent.name", "ip_172.17.0.1")
     }
-    
-    fun BuildSteps.DependencyTest_FunctionStep() {
-        script {
-            name = "Test Function Step"
-            id = "TestDependcy_BuildConfiguration"
-            workingDir = "/"
-            scriptContent = """
-                    #!/bin/bash
-
-                    firstVal=%FirstParam1%
-                    secondVal="%SecondParam%"
-
-                    echo "VCS branch is: '%teamcity.build.branch%'"
-                    echo "Entered branch is: '%confirmVcsBranchName%'"
-
-                    echo "Nontes For Dependcy Build Configuiration: " >  %build.number%_%teamcity.build.branch%_testFile.txt
-                    
-                    cat >multi_line_%build.number%_%teamcity.build.branch%_testFile.txt <<EOL
-                    Env Wrote from TeamCity First PARAM : %env.FirstParam%
-                    Env Wrote from TeamCity SECOND PARAM : %env.SecondParam%
-                    -----------------------
-                    Env Wrote from BASH  First PARAM : $!firstVal
-                    Env Wrote from BASH  First PARAM : $!secondVal
-
-                    """.trimIndent().replace("$!", "$")
-        }
-    }
-
 })
+
+private fun BuildSteps.DependencyTest_FunctionStep() {
+    script {
+        name = "Test Function Step"
+        id = "TestDependcy_BuildConfiguration"
+        workingDir = "/"
+        scriptContent = """
+                #!/bin/bash
+
+                firstVal=%FirstParam1%
+                secondVal="%SecondParam%"
+
+                echo "VCS branch is: '%teamcity.build.branch%'"
+                echo "Entered branch is: '%confirmVcsBranchName%'"
+
+                echo "Nontes For Dependcy Build Configuiration: " >  %build.number%_%teamcity.build.branch%_testFile.txt
+                
+                cat >multi_line_%build.number%_%teamcity.build.branch%_testFile.txt <<EOL
+                Env Wrote from TeamCity First PARAM : %env.FirstParam%
+                Env Wrote from TeamCity SECOND PARAM : %env.SecondParam%
+                -----------------------
+                Env Wrote from BASH  First PARAM : $!firstVal
+                Env Wrote from BASH  First PARAM : $!secondVal
+
+                """.trimIndent().replace("$!", "$")
+    }
+}
