@@ -8,6 +8,8 @@ object SubProject1_TestCommands : BuildType({
     name = "TestCommands"
     description = "TestCommands"
 
+    type = DEPLOYMENT
+
     params {
         password("deploy_pass", "credentialsJSON:3d93ad41-aacd-4523-8208-9f4cb2ca9531", display = ParameterDisplay.HIDDEN, readOnly = true)
         text("password", "", label = "Input password to start build:", display = ParameterDisplay.PROMPT, allowEmpty = false)
