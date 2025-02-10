@@ -9,6 +9,11 @@ To apply the patch, change the buildType with id = 'SubProject1_TestCommands'
 accordingly, and delete the patch script.
 */
 changeBuildType(RelativeId("SubProject1_TestCommands")) {
+    check(allowExternalStatus == false) {
+        "Unexpected option value: allowExternalStatus = $allowExternalStatus"
+    }
+    allowExternalStatus = true
+
     check(enablePersonalBuilds == true) {
         "Unexpected option value: enablePersonalBuilds = $enablePersonalBuilds"
     }
