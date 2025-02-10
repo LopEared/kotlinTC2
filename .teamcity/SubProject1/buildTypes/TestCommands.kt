@@ -2,13 +2,13 @@ import _self.*
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.ui.*
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
-
+import jetbrains.buildServer.configs.kotlin.BuildTypeSettings.Type.DEPLOYMENT
 
 object SubProject1_TestCommands : BuildType({
     name = "TestCommands"
     description = "TestCommands"
 
-    type = Regular
+    type = DEPLOYMENT
     enablePersonalBuilds = false
     maxRunningBuilds = 1
 
