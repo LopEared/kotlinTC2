@@ -13,8 +13,8 @@ object DependencyConfig_Test : BuildType({
     maxRunningBuilds = 1
 
     params {
-        text("FirstParam", "Value_First_Param", label = "First Param/ Iput value! ->")
-        text("SecondParam", "Value_Second_Param", label = "Second Param/ Iput value! ->")
+        text("FirstParam", "Value_First_Param", label = "1_Param: Iput value! ->")
+        text("SecondParam", "Value_Second_Param", label = "2_Param: Iput value! ->")
     }
 
     vcs {
@@ -32,7 +32,7 @@ object DependencyConfig_Test : BuildType({
 
 private fun BuildSteps.DependencyTest_FunctionStep() {
     script {
-        name = "Test Function Step"
+        name = "Dependency Test Function"
         id = "TestDependcy_BuildConfiguration"
         workingDir = "/"
         scriptContent = """
@@ -42,10 +42,9 @@ private fun BuildSteps.DependencyTest_FunctionStep() {
                 secondVal="%SecondParam%"
 
                 echo "VCS branch is: '%teamcity.build.branch%'"
-                echo "Entered branch is: '%confirmVcsBranchName%'"
 
                 echo "Nontes For Dependcy Build Configuiration: " >  %build.number%_%teamcity.build.branch%_testFile.txt
-                
+
                 cat >multi_line_%build.number%_%teamcity.build.branch%_testFile.txt <<EOL
                 Env Wrote from TeamCity First PARAM : %env.FirstParam%
                 Env Wrote from TeamCity SECOND PARAM : %env.SecondParam%
