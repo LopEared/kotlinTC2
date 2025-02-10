@@ -26,6 +26,7 @@ To debug in IntelliJ Idea, open the 'Maven Projects' tool window (View
 version = "2024.12"
 
 project {
+    name = "My New Root"
     description = "Project for Splitting Structure"
 
     subProject(SubProject2)
