@@ -46,8 +46,8 @@ private fun BuildSteps.DependencyTest_FunctionStep() {
                 echo "Nontes For Dependcy Build Configuiration: " >  %build.number%_%teamcity.build.branch%_testFile.txt
 
                 cat >multi_line_%build.number%_%teamcity.build.branch%_testFile.txt <<EOL
-                Env Wrote from TeamCity First PARAM : %env.FirstParam%
-                Env Wrote from TeamCity SECOND PARAM : %env.SecondParam%
+                Env Wrote from TeamCity First PARAM : %FirstParam%
+                Env Wrote from TeamCity SECOND PARAM : %SecondParam%
                 -----------------------
                 Env Wrote from BASH  First PARAM : $!firstVal
                 Env Wrote from BASH  First PARAM : $!secondVal
