@@ -22,6 +22,16 @@ object SubProject1_TestCommands : BuildType({
         root(DslContext.settingsRoot)
     }
 
+    dependency(DependencyConfig_Test) {
+        snapshot {
+            onDependencyFailure = FAIL_TO_START
+        }
+
+        artifacts {
+            enabled = false
+        }
+    }
+
     steps {
         checkPassword()
         confirmVcsBranch()

@@ -42,7 +42,7 @@ private fun BuildSteps.DependencyTest_FunctionStep() {
                 secondVal="%SecondParam%"
 
                 echo "VCS branch is: '%teamcity.build.branch%'"
-                echo "##teamcity[message text='<<< TEST ERROR MESSAGE!!! >>>' status='ERROR']"
+                echo "##teamcity[message text='<<< TEST ERROR MESSAGE!!! >>>' status='WARNING']"
 
                 echo "Nontes For Dependcy Build Configuiration: " >  %build.number%_%teamcity.build.branch%_testFile.txt
 
