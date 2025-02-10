@@ -8,7 +8,7 @@ object SubProject1_TestCommands : BuildType({
     name = "TestCommands"
     description = "TestCommands"
 
-    type = DEPLOYMENT
+    type = REGULAR
     enablePersonalBuilds = false
     maxRunningBuilds = 1
 
