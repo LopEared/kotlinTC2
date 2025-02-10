@@ -9,6 +9,8 @@ object SubProject1_TestCommands : BuildType({
     description = "TestCommands"
 
     type = DEPLOYMENT
+    enablePersonalBuilds = false
+    maxRunningBuilds = 1
 
     params {
         password("deploy_pass", "credentialsJSON:3d93ad41-aacd-4523-8208-9f4cb2ca9531", display = ParameterDisplay.HIDDEN, readOnly = true)
