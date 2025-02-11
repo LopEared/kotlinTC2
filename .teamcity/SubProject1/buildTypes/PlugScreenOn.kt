@@ -22,7 +22,7 @@ object PlugScreenOn : BuildType({
             workingDir = "/"
             scriptContent = """
                 echo "Test Moving PlugPage.html"
-                cd / && mv maintenance-stage.html2 maintenance-stage.html || exit 1
+                cd / && mv maintenance-stage.html2 maintenance-stage.html || echo "##teamcity[message text='<<< PAGE NOT FOUND!!! SCREEN PLUG STATE DON'T CHANGED!!! >>>' status='WARNING']"
             """.trimIndent()
         }
     }
