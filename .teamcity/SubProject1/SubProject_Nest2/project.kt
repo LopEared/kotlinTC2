@@ -5,5 +5,5 @@ object SubProject_Nest2 : Project({
     name = "SubProject_Nest2"
     description = "Test Dependcies from subproject"
 
-    buildType(TestDependcyFromSubProject)
+    buildType(SubProject_Nest2)
 })
