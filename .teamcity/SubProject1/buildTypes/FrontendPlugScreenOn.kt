@@ -1,3 +1,4 @@
+import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.BuildSteps
 import jetbrains.buildServer.configs.kotlin.BuildType
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
@@ -9,6 +10,7 @@ object FrontendPlugScreenOn : BuildType({
     type = REGULAR
 
     vcs {
+        root(DslContext.settingsRoot)
         excludeDefaultBranchChanges = true
         showDependenciesChanges = true
     }
