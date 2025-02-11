@@ -7,4 +7,6 @@ object SubProject1 : Project({
 
     buildType(SubProject1_TestCommands)
     buildType(DependencyConfig_Test)
+
+    subProject(SubProject_Nest2)
 })
