@@ -3,30 +3,7 @@ import jetbrains.buildServer.configs.kotlin.ui.*
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.BuildTypeSettings.Type.REGULAR
 
-// object SubProject_Nest2_buildConfig : BuildType({
-//     name = "SubProject_Nest2_buildConfig"
-//     description = "BuildConfig for  Test dependcy from subproject"
-
-//     type = REGULAR
-//     enablePersonalBuilds = false
-//     maxRunningBuilds = 1
-
-//     vcs {
-//         root(DslContext.settingsRoot)
-//     }
-
-//     steps {
-//         SubDependcyFunction()
-//     }
-
-//     requirements {
-//         equals("teamcity.agent.name", "ip_172.17.0.1")
-//     }
-// })
-
-
-
-object SubProject_Nest3_buildConfig : BuildType({
+    object SubProject_Nest3_buildConfig : BuildType({
     id("SubProject1_SubProjectNest3_SubProjectNest3BuildConfig")
     name = "SubProjectNest3_BuildConfig"
     description = "BuildConfig_SubProjectNest3"
@@ -57,7 +34,7 @@ private fun BuildSteps.SubDependcyFunction() {
         scriptContent = """
                 #!/bin/bash
                 echo "##teamcity[message text='<<< TEST WARNING MESSAGE!!! >>>' status='WARNING']"
-                echo "Notes From SubProject Dependcy Function: " >  %build.number%_%teamcity.build.branch%_subproj_dependcy.txt
+                echo "Notes From SubProject Dependcy Function: %system.teamcity.projectName% from build: %build.number% " >  %build.number%_%teamcity.build.branch%_subproj_dependcy.txt
                 """.trimIndent()
     }
 }
