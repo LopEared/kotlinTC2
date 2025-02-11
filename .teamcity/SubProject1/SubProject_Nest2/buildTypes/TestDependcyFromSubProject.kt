@@ -3,7 +3,7 @@ import jetbrains.buildServer.configs.kotlin.ui.*
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.BuildTypeSettings.Type.REGULAR
 
-object SubProject_Nest2 : BuildType({
+object SubProject_Nest2_buildConfig : BuildType({
     name = "SubProject_Nest2_BuildType"
     description = "BuildConfig for  Test dependcy from subproject"
 
