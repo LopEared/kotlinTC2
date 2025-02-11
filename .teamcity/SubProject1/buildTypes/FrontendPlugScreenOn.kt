@@ -1,5 +1,6 @@
 import jetbrains.buildServer.configs.kotlin.BuildSteps
 import jetbrains.buildServer.configs.kotlin.BuildType
+import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.BuildTypeSettings.Type.REGULAR
 
 object FrontendPlugScreenOn : BuildType({
