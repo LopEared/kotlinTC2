@@ -3,6 +3,7 @@ import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.ui.*
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.BuildTypeSettings.Type.DEPLOYMENT
+import jetbrains.buildServer.configs.kotlin.FailureAction.FAIL_TO_START
 
 object DependencyConfig_Test : BuildType({
     name = "DependencyConfig_Test"
@@ -11,6 +12,18 @@ object DependencyConfig_Test : BuildType({
     type = DEPLOYMENT
     enablePersonalBuilds = false
     maxRunningBuilds = 1
+
+    dependencies {
+        dependency(SubProject_Nest3_buildConfig) {
+            snapshot {
+                onDependencyFailure = FAIL_TO_START
+            }
+    
+            artifacts {
+                enabled = false
+            }
+        }
+    }
 
     params {
         text("FirstParam", "Value_First_Param", label = "1_Param: Iput value! ->")
