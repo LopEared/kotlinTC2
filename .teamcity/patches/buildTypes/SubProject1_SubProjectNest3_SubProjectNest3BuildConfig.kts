@@ -13,5 +13,9 @@ create(RelativeId("SubProject1_SubProjectNest3"), BuildType({
     id("SubProject1_SubProjectNest3_SubProjectNest3BuildConfig")
     name = "SubProjectNest3_BuildConfig"
     description = "BuildConfig_SubProjectNest3"
+
+    vcs {
+        root(DslContext.settingsRoot)
+    }
 }))
 
