@@ -2,7 +2,6 @@ package patches.buildTypes
 
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.BuildType
-import jetbrains.buildServer.configs.kotlin.buildSteps.maven
 import jetbrains.buildServer.configs.kotlin.ui.*
 
 /*
@@ -17,15 +16,6 @@ create(RelativeId("SubProject1_SubProjectNest3"), BuildType({
 
     vcs {
         root(DslContext.settingsRoot)
-    }
-
-    steps {
-        maven {
-            id = "Maven2"
-            goals = "clean test"
-            pomLocation = ".teamcity/pom.xml"
-            runnerArgs = "-Dmaven.test.failure.ignore=true"
-        }
     }
 }))
 
