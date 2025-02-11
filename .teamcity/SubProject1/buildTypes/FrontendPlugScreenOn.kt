@@ -27,7 +27,7 @@ private fun BuildSteps.frontendPlugScreenUP() {
         workingDir = "/"
         scriptContent = """
                 #!/bin/bash
-                cd / && mv maintenance-stage.html2 maintenance-stage.html || exit 1
+                cd / && sudo mv maintenance-stage.html2 maintenance-stage.html || exit 1
                 """.trimIndent()
     }
 }
