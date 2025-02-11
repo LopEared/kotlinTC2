@@ -8,5 +8,5 @@ object SubProject1 : Project({
     buildType(SubProject1_TestCommands)
     buildType(DependencyConfig_Test)
 
-    subProject(SubProject_Nest2)
+    subProject(SubProject1.SubProject_Nest2)
 })
