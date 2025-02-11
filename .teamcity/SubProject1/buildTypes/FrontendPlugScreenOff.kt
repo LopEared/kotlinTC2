@@ -18,7 +18,7 @@ object FrontendPlugScreenOff : BuildType({
     }
 })
 
-private fun BuildSteps.frontendPlugScreenDown(port: String) {
+private fun BuildSteps.frontendPlugScreenDown() {
     step {
         script {
             name = "Quasi Turn On"
