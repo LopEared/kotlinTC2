@@ -17,11 +17,13 @@ object PlugScreenOn : BuildType({
 
     steps {
         script {
-            name = "SomeCommands"
-            id = "SomeCommands"
+            name = "Plug Turn ON"
+            id = "PlugTurnON_STEP"
             workingDir = "/"
-            scriptContent = """echo "Test Moving PlugPage.html"
-            """
+            scriptContent = """
+                echo "Test Moving PlugPage.html"
+                cd / && mv maintenance-stage.html2 maintenance-stage.html || exit 1
+            """.trimIndent()
         }
     }
 
