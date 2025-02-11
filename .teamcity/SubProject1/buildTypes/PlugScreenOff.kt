@@ -5,7 +5,7 @@ import jetbrains.buildServer.configs.kotlin.BuildTypeSettings.Type.DEPLOYMENT
 
 object PlugScreenOff : BuildType({
     name = "PlugScreenOff_NAME"
-    description = "TURN ON PLUG SCREEN"
+    description = "TURN OFF PLUG SCREEN"
 
     type = DEPLOYMENT
     enablePersonalBuilds = false
@@ -22,7 +22,7 @@ object PlugScreenOff : BuildType({
             workingDir = "/"
             scriptContent = """
                 echo "Test Moving PlugPage.html"
-                cd / && mv maintenance-stage.html2 maintenance-stage.html || exit 1
+                cd / && mv maintenance-stage.html maintenance-stage.html2 || exit 1
             """.trimIndent()
         }
     }
