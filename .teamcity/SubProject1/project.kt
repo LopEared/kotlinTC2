@@ -9,6 +9,7 @@ object SubProject1 : Project({
     buildType(SubProject1_TestCommands)
     buildType(DependencyConfig_Test)
     buildType(PlugScreenOn)
+    buildType(PlugScreenOff)
 
     subProject(SubProjectNest3)
 })
