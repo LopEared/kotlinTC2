@@ -8,3 +8,9 @@ object SubProjectNest2 : Project({
 
     buildType(SubProject_Nest2_buildConfig)
 })
+
+object SubProjectNest3 : Project({
+    id("SubProject1_SubProjectNest3")
+    name = "SubProject_Nest3"
+    description = "Description_SubProject_Nest3"
+})
