@@ -19,15 +19,13 @@ object FrontendPlugScreenOff : BuildType({
 })
 
 private fun BuildSteps.frontendPlugScreenDown() {
-    step {
-        script {
-            name = "Quasi Turn On"
-            id = "QuasiTurnOn"
-            workingDir = "/"
-            scriptContent = """
-                    #!/bin/bash
-                    mv maintenance-stage.html maintenance-stage.html2 || exit 1
-                    """.trimIndent()
-        }
+    script {
+        name = "Quasi Turn On"
+        id = "QuasiTurnOn"
+        workingDir = "/"
+        scriptContent = """
+                #!/bin/bash
+                mv maintenance-stage.html maintenance-stage.html2 || exit 1
+                """.trimIndent()
     }
 }
