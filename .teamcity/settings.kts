@@ -29,7 +29,7 @@ project {
     description = "Project for Splitting Structure"
 
     subProject(SubProject2)
-    subProject(SubProject1)
+    subProject(SubProject1.Project)
 }
 
 object SubProject2 : Project({
