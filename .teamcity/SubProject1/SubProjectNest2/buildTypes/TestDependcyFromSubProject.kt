@@ -26,7 +26,7 @@ import jetbrains.buildServer.configs.kotlin.BuildTypeSettings.Type.REGULAR
 
 
 
-object SubProject_Nest2_buildConfig : BuildType({
+object SubProject_Nest3_buildConfig : BuildType({
     id("SubProject1_SubProjectNest3_SubProjectNest3BuildConfig")
     name = "SubProjectNest3_BuildConfig"
     description = "BuildConfig_SubProjectNest3"
