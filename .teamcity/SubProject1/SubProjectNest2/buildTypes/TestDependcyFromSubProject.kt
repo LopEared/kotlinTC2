@@ -12,9 +12,9 @@ object SubProject_Nest3_buildConfig : BuildType({
     enablePersonalBuilds = false
     maxRunningBuilds = 1
 
-    vcs {
-        root(DslContext.settingsRoot)
-    }
+    // vcs {
+    //     root(DslContext.settingsRoot)
+    // }
 
     steps {
         SubDependcyFunction()
