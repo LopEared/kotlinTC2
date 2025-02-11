@@ -9,6 +9,7 @@ object FrontendPlugScreenOff : BuildType({
     type = REGULAR
 
     vcs {
+        root(DslContext.settingsRoot)
         excludeDefaultBranchChanges = true
         showDependenciesChanges = true
     }
