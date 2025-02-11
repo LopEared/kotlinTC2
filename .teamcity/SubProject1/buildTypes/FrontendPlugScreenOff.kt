@@ -13,8 +13,7 @@ object FrontendPlugScreenOff : BuildType({
     }
 
     steps {
-        frontendPlugScreenDown("30222")
-        frontendPlugScreenDown("36022")
+        frontendPlugScreenDown()
     }
 })
 
