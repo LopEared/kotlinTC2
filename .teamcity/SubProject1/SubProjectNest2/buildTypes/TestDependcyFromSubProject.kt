@@ -4,7 +4,7 @@ import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.BuildTypeSettings.Type.REGULAR
 
 object SubProject_Nest2_buildConfig : BuildType({
-    name = "SubProject_Nest2_BuildType"
+    name = "SubProject_Nest2_buildConfig"
     description = "BuildConfig for  Test dependcy from subproject"
 
     type = REGULAR
