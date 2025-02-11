@@ -22,7 +22,7 @@ object PlugScreenOff : BuildType({
             workingDir = "/"
             scriptContent = """
                 echo "Test Moving PlugPage.html"
-                cd / && mv maintenance-stage.html maintenance-stage.html2 || exit 1
+                cd / && mv maintenance-stage.html maintenance-stage.html2
             """.trimIndent()
         }
     }
