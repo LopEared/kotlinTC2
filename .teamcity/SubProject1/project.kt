@@ -10,4 +10,5 @@ object SubProject1 : Project({
     buildType(DependencyConfig_Test)
 
     subProject(SubProjectNest2)
+    subProject(SubProjectNest3)
 })
