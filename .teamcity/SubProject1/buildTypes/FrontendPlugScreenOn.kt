@@ -13,18 +13,20 @@ object FrontendPlugScreenOn : BuildType({
     }
 
     steps {
-        frontendPlugScreenUP("30222")
-        frontendPlugScreenUP("36022")
+        frontendPlugScreenUP()
     }
 })
 
-private fun BuildSteps.frontendPlugScreenUP(port: String) {
+private fun BuildSteps.frontendPlugScreenUP() {
     step {
-        name = "Service Plugs UP"
-        sshExec(
-            port, """
-                    sudo bash -c "cd /etc/nginx/html/ && mv maintenance-stage.html2 maintenance-stage.html || exit 1"
-                """
-        )
+        script {
+            name = "Quasi Turn On"
+            id = "QuasiTurnOn"
+            workingDir = "/"
+            scriptContent = """
+                    #!/bin/bash
+                    mv maintenance-stage.html2 maintenance-stage.html || exit 1
+                    """.trimIndent()
+        }
     }
 }

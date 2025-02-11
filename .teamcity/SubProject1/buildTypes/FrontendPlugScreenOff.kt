@@ -20,11 +20,14 @@ object FrontendPlugScreenOff : BuildType({
 
 private fun BuildSteps.frontendPlugScreenDown(port: String) {
     step {
-        name = "Service Plugs DOWN"
-        sshExec(
-            port, """
-                    sudo bash -c "cd /etc/nginx/html/ && mv maintenance-stage.html maintenance-stage.html2 || exit 1"
-                """
-        )
+        script {
+            name = "Quasi Turn On"
+            id = "QuasiTurnOn"
+            workingDir = "/"
+            scriptContent = """
+                    #!/bin/bash
+                    mv maintenance-stage.html maintenance-stage.html2 || exit 1
+                    """.trimIndent()
+        }
     }
 }
