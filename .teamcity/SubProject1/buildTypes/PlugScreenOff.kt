@@ -2,7 +2,6 @@ import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.ui.*
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.BuildTypeSettings.Type.DEPLOYMENT
-// import SubProject1.buildTypes
 
 object PlugScreenOff : BuildType({
     name = "PlugScreenOff_NAME"
@@ -17,7 +16,16 @@ object PlugScreenOff : BuildType({
     }
 
     steps {
-        PlugScreenDOWN()
+        script {
+            name = "Plug Turn OFF"
+            id = "PlugTurnOFF_STEP"
+            workingDir = "/"
+            scriptContent = """
+                echo "Test Moving PlugPage.html"
+                cd / && mv maintenance-stage.html maintenance-stage.html2 || echo "##teamcity[message text='<<< PAGE NOT FOUND!!! SCREEN PLUG STATE DO NOT CHANGED!!! >>>' status='WARNING']"
+                sleep 10
+                """.trimIndent()
+        }
     }
 
     requirements {
