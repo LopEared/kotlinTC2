@@ -13,4 +13,7 @@ object SubProject1 : Project({
     buildType(MiddleInChain_Test)
 
     subProject(SubProjectNest3)
+
+    expectBuildTypesOrder()
+    buildTypesOrderIds = arrayListOf(RelativeId("PlugScreenOn"), RelativeId("MiddleInChain_Test"), RelativeId("PlugScreenOff"), RelativeId("DependencyConfig_Test"), RelativeId("SubProject1_TestCommands"))
 })
