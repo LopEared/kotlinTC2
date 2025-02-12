@@ -12,7 +12,7 @@ changeBuildType(RelativeId("SubProject1_TestCommands")) {
     params {
         add {
             checkbox("TestCheckBox", "", label = "TEST FROM LEFT SIDE", description = "Test Check Box for condition", display = ParameterDisplay.PROMPT,
-                      checked = "true")
+                      checked = "true", unchecked = "false")
         }
     }
 }
