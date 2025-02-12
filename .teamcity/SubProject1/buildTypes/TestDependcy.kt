@@ -67,7 +67,7 @@ private fun BuildSteps.DependencyTest_FunctionStep() {
                 Env Wrote from BASH  First PARAM : $!secondVal
                 EOL
 
-
+                sleep 5
                 """.trimIndent().replace("$!", "$")
     }
 }

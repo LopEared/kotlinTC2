@@ -30,7 +30,30 @@ object SubProject1_TestCommands : BuildType({
             snapshot {
                 onDependencyFailure = FAIL_TO_START
             }
-    
+            artifacts {
+                enabled = false
+            }
+        }
+        dependency(PlugScreenOn) {
+            snapshot {
+                onDependencyFailure = FAIL_TO_START
+            }
+            artifacts {
+                enabled = false
+            }
+        }
+        dependency(MiddleInChain_Test) {
+            snapshot {
+                onDependencyFailure = FAIL_TO_START
+            }
+            artifacts {
+                enabled = false
+            }
+        }
+        dependency(PlugScreenOff) {
+            snapshot {
+                onDependencyFailure = FAIL_TO_START
+            }
             artifacts {
                 enabled = false
             }

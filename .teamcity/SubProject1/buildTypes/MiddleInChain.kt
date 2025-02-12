@@ -34,6 +34,7 @@ private fun BuildSteps.MiddleInChainFunc() {
         scriptContent = """
                 #!/bin/bash
                 echo "TEST NOTE FOR FILE MIDDLE IN CHAIN: " > %build.number%_middle_in_chain.txt
+                sleep 5
                 """.trimIndent().replace("$!", "$")
     }
 }
