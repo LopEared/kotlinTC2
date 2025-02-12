@@ -16,16 +16,7 @@ object PlugScreenOn : BuildType({
     }
 
     steps {
-        script {
-            name = "Plug Turn ON"
-            id = "PlugTurnON_STEP"
-            workingDir = "/"
-            scriptContent = """
-                echo "Test Moving PlugPage.html"
-                cd / && mv maintenance-stage.html2 maintenance-stage.html || echo "##teamcity[message text='<<< PAGE NOT FOUND!!! SCREEN PLUG STATE DO NOT CHANGED!!! >>>' status='WARNING']"
-                sleep 10
-                """.trimIndent()
-        }
+        PlugScreenUP()
     }
 
     requirements {
