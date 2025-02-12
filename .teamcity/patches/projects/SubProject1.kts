@@ -11,5 +11,5 @@ accordingly, and delete the patch script.
 */
 changeProject(RelativeId("SubProject1")) {
     expectBuildTypesOrder()
-    buildTypesOrderIds = arrayListOf(RelativeId("DependencyConfig_Test"), RelativeId("PlugScreenOn"), RelativeId("MiddleInChain_Test"), RelativeId("PlugScreenOff"), RelativeId("SubProject1_TestCommands"))
+    buildTypesOrderIds = arrayListOf(RelativeId("PlugScreenOn"), RelativeId("MiddleInChain_Test"), RelativeId("PlugScreenOff"), RelativeId("DependencyConfig_Test"), RelativeId("SubProject1_TestCommands"))
 }
