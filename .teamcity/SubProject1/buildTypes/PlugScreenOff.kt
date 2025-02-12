@@ -23,7 +23,7 @@ object PlugScreenOff : BuildType({
             scriptContent = """
                 echo "Test Moving PlugPage.html"
                 cd / && mv maintenance-stage.html maintenance-stage.html2 || echo "##teamcity[message text='<<< PAGE NOT FOUND!!! SCREEN PLUG STATE DO NOT CHANGED!!! >>>' status='WARNING']"
-                sleep 5
+                sleep 10
                 """.trimIndent()
         }
     }

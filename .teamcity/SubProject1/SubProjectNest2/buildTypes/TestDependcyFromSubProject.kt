@@ -33,6 +33,7 @@ private fun BuildSteps.SubDependcyFunction() {
         workingDir = "/"
         scriptContent = """
                 #!/bin/bash
+                sleep 10
                 echo "##teamcity[message text='<<< TEST WARNING MESSAGE!!! >>>' status='WARNING']"
                 echo "Notes From SubProject Dependcy Function: %system.teamcity.projectName% from build: %build.number% " >  %build.number%_%teamcity.build.branch%_subproj_dependcy.txt
                 """.trimIndent()
