@@ -11,7 +11,7 @@ accordingly, and delete the patch script.
 changeBuildType(RelativeId("SubProject1_TestCommands")) {
     params {
         add {
-            checkbox("TestCheckBox", "", label = "TEST FROM LEFT SIDE", description = "Test Check Box for condition", display = ParameterDisplay.PROMPT,
+            checkbox("TestCheckBox", "true", label = "TEST FROM LEFT SIDE", description = "Test Check Box for condition", display = ParameterDisplay.PROMPT,
                       checked = "true", unchecked = "false")
         }
     }
