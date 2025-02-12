@@ -64,9 +64,7 @@ object SubProject1_TestCommands : BuildType({
     steps {
         checkPassword()
         confirmVcsBranch()
-        when (%TestCheckBox%){
-            createFile()
-        }
+        if (%TestCheckBox%) createFile()
 
         script {
             name = "SomeCommands"
