@@ -2,6 +2,7 @@ import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.ui.*
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.BuildTypeSettings.Type.DEPLOYMENT
+import SubProject1.buildTypes
 
 object PlugScreenOn : BuildType({
     name = "PlugScreenOn_NAME"
