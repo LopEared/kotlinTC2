@@ -1,5 +1,3 @@
-package SubProject1.buildTypes
-
 import jetbrains.buildServer.configs.kotlin.BuildSteps
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
