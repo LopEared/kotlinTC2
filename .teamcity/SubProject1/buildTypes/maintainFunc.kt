@@ -26,3 +26,15 @@ fun BuildSteps.PlugScreenDOWN() {
             """.trimIndent()
     }
 }
+
+fun BuildSteps.createFile() {
+    script {
+        name = "Create Test Condition File"
+        workingDir = "/"
+        scriptContent = """
+            echo "StartCreate File"
+            touch %build.number%_conditionFile.txt
+            sleep 5
+            """.trimIndent()
+    }
+}
