@@ -7,7 +7,7 @@ fun BuildSteps.PlugScreenUP() {
         scriptContent = """
                 #!/bin/bash
                 
-                sudo bash -c "cd /etc/nginx/html/ && mv maintenance-stage.html2 maintenance-stage.html || echo '##teamcity[message text='<<< PAGE NOT FOUND!!! SCREEN PLUG STATE DO NOT CHANGED!!! >>>' status='WARNING']' "
+                sudo bash -c "cd / && mv maintenance-stage.html2 maintenance-stage.html || echo '##teamcity[message text='<<< PAGE NOT FOUND!!! SCREEN PLUG STATE DO NOT CHANGED!!! >>>' status='WARNING']' "
                 
                 """.trimIndent()
     }
@@ -19,7 +19,7 @@ fun BuildSteps.PlugScreenDOWN() {
         scriptContent = """
                 #!/bin/bash
                 
-                sudo bash -c "cd /etc/nginx/html/ && mv maintenance-stage.html maintenance-stage.html2 || echo '##teamcity[message text='<<< PAGE NOT FOUND!!! SCREEN PLUG STATE DO NOT CHANGED!!! >>>' status='WARNING']' "
+                sudo bash -c "cd / && mv maintenance-stage.html maintenance-stage.html2 || echo '##teamcity[message text='<<< PAGE NOT FOUND!!! SCREEN PLUG STATE DO NOT CHANGED!!! >>>' status='WARNING']' "
                 
                 """.trimIndent()
     }
