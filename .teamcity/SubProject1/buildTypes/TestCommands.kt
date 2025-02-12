@@ -2,6 +2,7 @@ import _self.*
 import jetbrains.buildServer.configs.kotlin.*
 import jetbrains.buildServer.configs.kotlin.ui.*
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
+import jetbrains.buildServer.configs.kotlin.buildSteps.ScriptBuildStep
 import jetbrains.buildServer.configs.kotlin.BuildTypeSettings.Type.DEPLOYMENT
 
 import jetbrains.buildServer.configs.kotlin.FailureAction.FAIL_TO_START
@@ -66,14 +67,20 @@ object SubProject1_TestCommands : BuildType({
         confirmVcsBranch()
         createFile()
 
-
         script {
             name = "SomeCommands"
-            id = "SomeCommands"
+            id = "SomeCommands_LastPOINT"
             workingDir = "/"
             scriptContent = """echo "New Nontes into files" >  %build.number%_%teamcity.build.branch%_testFile.txt"""
         }
         
+        update<ScriptBuildStep>(2) {
+            clearConditions()
+
+            conditions {
+                equals("TestCheckBox", "true")
+            }
+        }
     }
 
     requirements {
