@@ -39,6 +39,7 @@ fun BuildSteps.checkPassword() {
 
 fun BuildSteps.confirmVcsBranch() {
     script {
+        name = "Сheck Selected Branch"
         id = "Confirm VCS branch version"
         scriptContent = """
                 #!/bin/bash
