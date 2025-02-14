@@ -28,15 +28,7 @@ object SubProject1_TestCommands : BuildType({
     }
 
     dependencies {
-        dependency(DependencyConfig_Test) {
-            snapshot {
-                onDependencyFailure = FAIL_TO_START
-            }
-            artifacts {
-                enabled = false
-            }
-        }
-        // dependency(PlugScreenOn) {
+        // dependency(DependencyConfig_Test) {
         //     snapshot {
         //         onDependencyFailure = FAIL_TO_START
         //     }
@@ -44,6 +36,14 @@ object SubProject1_TestCommands : BuildType({
         //         enabled = false
         //     }
         // }
+        dependency(PlugScreenOn) {
+            snapshot {
+                onDependencyFailure = FAIL_TO_START
+            }
+            artifacts {
+                enabled = false
+            }
+        }
         // dependency(MiddleInChain_Test) {
         //     snapshot {
         //         onDependencyFailure = FAIL_TO_START
@@ -65,8 +65,8 @@ object SubProject1_TestCommands : BuildType({
     steps {
         checkPassword()
         confirmVcsBranch()
-        createFile()
-        testPassCheckBoxinBash()
+        // createFile()
+        // testPassCheckBoxinBash()
 
         script {
             name = "SomeCommands"

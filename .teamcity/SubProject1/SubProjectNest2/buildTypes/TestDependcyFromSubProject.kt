@@ -18,7 +18,7 @@ object SubProject_Nest3_buildConfig : BuildType({
 
     steps {
         SubDependcyFunction()
-        PlugScreenUP()
+        // PlugScreenUP()
     }
 
     requirements {
