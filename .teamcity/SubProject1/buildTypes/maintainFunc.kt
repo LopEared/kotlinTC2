@@ -24,10 +24,6 @@ fun BuildSteps.PlugScreenDOWN() {
         id = "PlugTurnOFF_STEP"
         workingDir = "/"
         scriptContent = """
-            #echo "Test Moving PlugPage.html"
-            #cd / && mv maintenance-stage.html maintenance-stage.html2 || echo "##teamcity[message text='<<< PAGE NOT FOUND!!! SCREEN PLUG STATE DO NOT CHANGED!!! >>>' status='WARNING']"
-            #sleep 10
-
             #!/bin/bash
             if [ -f /maintenance-stage.html ]; then
                 echo "TURN OFF PLUG SCREEN"
