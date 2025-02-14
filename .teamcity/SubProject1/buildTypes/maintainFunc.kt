@@ -41,7 +41,6 @@ fun BuildSteps.PlugScreenUP() {
     }
 }
 
-
 fun BuildSteps.PlugScreenDOWN() {
     script {
         name = "Plug Turn OFF"
@@ -49,15 +48,38 @@ fun BuildSteps.PlugScreenDOWN() {
         workingDir = "/"
         scriptContent = """
             #!/bin/bash
-            if [ -f /maintenance-stage.html ]; then
-                echo "TURN OFF PLUG SCREEN"
-                bash -c "cd / && mv maintenance-stage.html maintenance-stage.html2 || exit 1"
+            echo "Test Pass CHECK BOX value in BASH"
+            if [[ "%TestCheckBox%" == "true" ]]; then
+                echo "CHECK BOX FLAG -> OK!"
+                if [ -f /maintenance-stage.html ]; then
+                    echo "TURN OFF PLUG SCREEN"
+                    bash -c "cd / && mv maintenance-stage.html maintenance-stage.html2 || exit 1"
+                else
+                    echo "##teamcity[message text='PAGE FILE NOT FOUND!!! SCREEN PLUG STATE DO NOT CHANGED!!!' status='WARNING']"
+                fi
             else
-                echo "##teamcity[message text='PAGE FILE NOT FOUND!!! SCREEN PLUG STATE DO NOT CHANGED!!!' status='WARNING']"
+                echo "CHECK BOX FLAG -> NOT OK! ACTION SKIPPED!!!"
             fi
             """.trimIndent()
     }
 }
+
+// fun BuildSteps.PlugScreenDOWN() {
+//     script {
+//         name = "Plug Turn OFF"
+//         id = "PlugTurnOFF_STEP"
+//         workingDir = "/"
+//         scriptContent = """
+//             #!/bin/bash
+//             if [ -f /maintenance-stage.html ]; then
+//                 echo "TURN OFF PLUG SCREEN"
+//                 bash -c "cd / && mv maintenance-stage.html maintenance-stage.html2 || exit 1"
+//             else
+//                 echo "##teamcity[message text='PAGE FILE NOT FOUND!!! SCREEN PLUG STATE DO NOT CHANGED!!!' status='WARNING']"
+//             fi
+//             """.trimIndent()
+//     }
+// }
 
 fun BuildSteps.createFile() {
     script {

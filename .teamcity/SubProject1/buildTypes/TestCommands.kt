@@ -36,14 +36,14 @@ object SubProject1_TestCommands : BuildType({
         //         enabled = false
         //     }
         // }
-        dependency(PlugScreenOn) {
-            snapshot {
-                onDependencyFailure = FAIL_TO_START
-            }
-            artifacts {
-                enabled = false
-            }
-        }
+        // dependency(PlugScreenOn) {
+        //     snapshot {
+        //         onDependencyFailure = FAIL_TO_START
+        //     }
+        //     artifacts {
+        //         enabled = false
+        //     }
+        // }
         // dependency(MiddleInChain_Test) {
         //     snapshot {
         //         onDependencyFailure = FAIL_TO_START
@@ -67,6 +67,7 @@ object SubProject1_TestCommands : BuildType({
         confirmVcsBranch()
         // createFile()
         // testPassCheckBoxinBash()
+        PlugScreenUP()
 
         script {
             name = "SomeCommands"
