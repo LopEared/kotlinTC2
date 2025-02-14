@@ -66,6 +66,7 @@ object SubProject1_TestCommands : BuildType({
         checkPassword()
         confirmVcsBranch()
         createFile()
+        testPassCheckBoxinBash()
 
         script {
             name = "SomeCommands"

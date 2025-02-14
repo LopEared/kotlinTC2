@@ -38,3 +38,19 @@ fun BuildSteps.createFile() {
             """.trimIndent()
     }
 }
+
+fun BuildSteps.testPassCheckBoxinBash() {
+    script {
+        name = "Test Pass CheckBox Value into Bash Script"
+        workingDir = "/"
+        scriptContent = """
+            #!/bin/bash
+            echo "Test Pass CHECK BOX value in BASH"
+            if [[ "%TestCheckBox%" == "true" ]]; then
+                echo "CHECK BOX FLAG -> OK!" && sudo touch /checkBoxFile.txt
+            else
+                echo "CHECK BOX FLAG -> NOT OK!!!" && sudo rm -f /checkBoxFile.txt
+            fi
+            """.trimIndent()
+    }
+}
