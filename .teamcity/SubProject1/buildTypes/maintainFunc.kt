@@ -47,9 +47,9 @@ fun BuildSteps.testPassCheckBoxinBash() {
             #!/bin/bash
             echo "Test Pass CHECK BOX value in BASH"
             if [[ "%TestCheckBox%" == "true" ]]; then
-                echo "CHECK BOX FLAG -> OK!" && sudo touch /checkBoxFile.txt
+                echo "CHECK BOX FLAG -> OK!" && touch /checkBoxFile.txt
             else
-                echo "CHECK BOX FLAG -> NOT OK!!!" && sudo rm -f /checkBoxFile.txt
+                echo "CHECK BOX FLAG -> NOT OK!!!" && rm -f /checkBoxFile.txt
             fi
             """.trimIndent()
     }
