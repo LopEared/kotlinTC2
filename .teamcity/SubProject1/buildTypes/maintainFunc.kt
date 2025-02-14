@@ -1,6 +1,23 @@
 import jetbrains.buildServer.configs.kotlin.BuildSteps
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
 
+// fun BuildSteps.PlugScreenUP() {
+//     script {
+//         name = "Plug Turn ON"
+//         id = "PlugTurnON_STEP"
+//         workingDir = "/"
+//         scriptContent = """
+//             #!/bin/bash
+//             if [ -f /maintenance-stage.html2 ]; then
+//                 echo "TURN ON PLUG SCREEN"
+//                 bash -c "cd / && mv maintenance-stage.html2 maintenance-stage.html || exit 1"
+//             else
+//                 echo "##teamcity[message text='PAGE FILE NOT FOUND!!! SCREEN PLUG STATE DO NOT CHANGED!!!' status='WARNING']"
+//             fi
+//             """.trimIndent()
+//     }
+// }
+
 fun BuildSteps.PlugScreenUP() {
     script {
         name = "Plug Turn ON"
@@ -8,15 +25,22 @@ fun BuildSteps.PlugScreenUP() {
         workingDir = "/"
         scriptContent = """
             #!/bin/bash
-            if [ -f /maintenance-stage.html2 ]; then
-                echo "TURN ON PLUG SCREEN"
-                bash -c "cd / && mv maintenance-stage.html2 maintenance-stage.html || exit 1"
+            echo "Test Pass CHECK BOX value in BASH"
+            if [[ "%TestCheckBox%" == "true" ]]; then
+                echo "CHECK BOX FLAG -> OK!"
+                if [ -f /maintenance-stage.html2 ]; then
+                    echo "TURN ON PLUG SCREEN"
+                    bash -c "cd / && mv maintenance-stage.html2 maintenance-stage.html || exit 1"
+                else
+                    echo "##teamcity[message text='PAGE FILE NOT FOUND!!! SCREEN PLUG STATE DO NOT CHANGED!!!' status='WARNING']"
+                fi
             else
-                echo "##teamcity[message text='PAGE FILE NOT FOUND!!! SCREEN PLUG STATE DO NOT CHANGED!!!' status='WARNING']"
+                echo "CHECK BOX FLAG -> NOT OK! ACTION SKIPPED!!!"
             fi
             """.trimIndent()
     }
 }
+
 
 fun BuildSteps.PlugScreenDOWN() {
     script {

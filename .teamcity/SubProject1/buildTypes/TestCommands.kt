@@ -20,7 +20,7 @@ object SubProject1_TestCommands : BuildType({
         password("deploy_pass", "credentialsJSON:3d93ad41-aacd-4523-8208-9f4cb2ca9531", display = ParameterDisplay.HIDDEN, readOnly = true)
         password("password", "", label = "Password", description = "Input password to start build", display = ParameterDisplay.PROMPT)
         text("confirmVcsBranchName", "", label = "Confirm branch name:", display = ParameterDisplay.PROMPT, allowEmpty = false)
-        checkbox("PlugScreenOption", "true", label = "Screen plug during process", description = "Will put up a screen plug before deployment and removed it after deployment.", display = ParameterDisplay.PROMPT, checked = "true", unchecked = "false")
+        checkbox("TestCheckBox", "true", label = "Screen plug during process", description = "Will put up a screen plug before deployment and removed it after deployment.", display = ParameterDisplay.PROMPT, checked = "true", unchecked = "false")
     }
 
     vcs {
@@ -36,30 +36,30 @@ object SubProject1_TestCommands : BuildType({
                 enabled = false
             }
         }
-        dependency(PlugScreenOn) {
-            snapshot {
-                onDependencyFailure = FAIL_TO_START
-            }
-            artifacts {
-                enabled = false
-            }
-        }
-        dependency(MiddleInChain_Test) {
-            snapshot {
-                onDependencyFailure = FAIL_TO_START
-            }
-            artifacts {
-                enabled = false
-            }
-        }
-        dependency(PlugScreenOff) {
-            snapshot {
-                onDependencyFailure = FAIL_TO_START
-            }
-            artifacts {
-                enabled = false
-            }
-        }
+        // dependency(PlugScreenOn) {
+        //     snapshot {
+        //         onDependencyFailure = FAIL_TO_START
+        //     }
+        //     artifacts {
+        //         enabled = false
+        //     }
+        // }
+        // dependency(MiddleInChain_Test) {
+        //     snapshot {
+        //         onDependencyFailure = FAIL_TO_START
+        //     }
+        //     artifacts {
+        //         enabled = false
+        //     }
+        // }
+        // dependency(PlugScreenOff) {
+        //     snapshot {
+        //         onDependencyFailure = FAIL_TO_START
+        //     }
+        //     artifacts {
+        //         enabled = false
+        //     }
+        // }
     }
 
     steps {
