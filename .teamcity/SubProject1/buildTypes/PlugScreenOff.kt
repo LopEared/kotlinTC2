@@ -16,7 +16,7 @@ object PlugScreenOff : BuildType({
     }
 
     params {
-        checkbox("TestCheckBox", "true", label = "Screen plug during process", description = "Will put up a screen plug before deployment and removed it after deployment.", display = ParameterDisplay.HIDDEN, readOnly = true, checked = "true", unchecked = "false")
+        checkbox("TestCheckBox", "true", label = "Screen plug during process", description = "Will put up a screen plug before deployment and removed it after deployment.", display = ParameterDisplay.NORMAL, readOnly = true, checked = "true", unchecked = "false")
     }
 
     steps {
