@@ -7,9 +7,17 @@ fun BuildSteps.PlugScreenUP() {
         id = "PlugTurnON_STEP"
         workingDir = "/"
         scriptContent = """
-            echo "Test Moving PlugPage.html"
-            cd / && mv maintenance-stage.html2 maintenance-stage.html || echo "##teamcity[message text='<<< PAGE NOT FOUND!!! SCREEN PLUG STATE DO NOT CHANGED!!! >>>' status='WARNING']"
-            sleep 10
+            #echo "Test Moving PlugPage.html"
+            #cd / && mv maintenance-stage.html2 maintenance-stage.html || echo "##teamcity[message text='<<< PAGE NOT FOUND!!! SCREEN PLUG STATE DO NOT CHANGED!!! >>>' status='WARNING']"
+            #sleep 10
+
+            #!/bin/bash
+            if [ -f /maintenance-stage.html ]; then
+                echo "TURN OFF PLUG SCREEN"
+                sudo bash -c "cd / && mv maintenance-stage.html2 maintenance-stage.html || exit 1"
+            else
+                echo "##teamcity[message text='PAGE FILE NOT FOUND!!! SCREEN PLUG STATE DO NOT CHANGED!!!' status='WARNING']"
+            fi
             """.trimIndent()
     }
 }
@@ -20,9 +28,17 @@ fun BuildSteps.PlugScreenDOWN() {
         id = "PlugTurnOFF_STEP"
         workingDir = "/"
         scriptContent = """
-            echo "Test Moving PlugPage.html"
-            cd / && mv maintenance-stage.html maintenance-stage.html2 || echo "##teamcity[message text='<<< PAGE NOT FOUND!!! SCREEN PLUG STATE DO NOT CHANGED!!! >>>' status='WARNING']"
-            sleep 10
+            #echo "Test Moving PlugPage.html"
+            #cd / && mv maintenance-stage.html maintenance-stage.html2 || echo "##teamcity[message text='<<< PAGE NOT FOUND!!! SCREEN PLUG STATE DO NOT CHANGED!!! >>>' status='WARNING']"
+            #sleep 10
+
+            #!/bin/bash
+            if [ -f /maintenance-stage.html ]; then
+                echo "TURN OFF PLUG SCREEN"
+                sudo bash -c "cd / && mv maintenance-stage.html maintenance-stage.html2 || exit 1"
+            else
+                echo "##teamcity[message text='PAGE FILE NOT FOUND!!! SCREEN PLUG STATE DO NOT CHANGED!!!' status='WARNING']"
+            fi
             """.trimIndent()
     }
 }

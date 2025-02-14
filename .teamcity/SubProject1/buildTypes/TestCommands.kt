@@ -18,7 +18,7 @@ object SubProject1_TestCommands : BuildType({
 
     params {
         password("deploy_pass", "credentialsJSON:3d93ad41-aacd-4523-8208-9f4cb2ca9531", display = ParameterDisplay.HIDDEN, readOnly = true)
-        text("password", "", label = "Input password to start build:", display = ParameterDisplay.PROMPT, allowEmpty = false)
+        password("password", "", label = "Password", description = "Input password to start build", display = ParameterDisplay.PROMPT)
         text("confirmVcsBranchName", "", label = "Confirm branch name:", display = ParameterDisplay.PROMPT, allowEmpty = false)
         checkbox("TestCheckBox", "true", label = "TEST FROM LEFT SIDE", description = "Test Check Box for condition", display = ParameterDisplay.PROMPT, checked = "true", unchecked = "false")
     }
