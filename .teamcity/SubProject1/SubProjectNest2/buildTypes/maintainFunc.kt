@@ -44,8 +44,7 @@ fun BuildSteps.PlugScreenUP() {
 private fun BuildSteps.pgsqlBackup() {
     step {
         name = "Create psql backup"
-        sshExec(
-            port, """
+        scriptContent = """
                 #!/bin/bash
                 if [[ "%pgsqlMakeBackup%" == "true" ]]; then
                     find /testDir -type f -mmin +5 -name '*' -execdir rm -- '{}'
@@ -53,7 +52,6 @@ private fun BuildSteps.pgsqlBackup() {
                     echo "SKIPPED: Make Backup for Postgres DB consult and appoinment."
                 fi
         """.trimIndent()
-        )
     }
 }
 
