@@ -78,13 +78,13 @@ object SubProject1_TestCommands : BuildType({
             scriptContent = """echo "New Nontes into files" >  %build.number%_%teamcity.build.branch%_testFile.txt"""
         }
         
-        update<ScriptBuildStep>(2) {
-            clearConditions()
+        // update<ScriptBuildStep>(2) {
+        //     clearConditions()
 
-            conditions {
-                equals("TestCheckBox", "true")
-            }
-        }
+        //     conditions {
+        //         equals("TestCheckBox", "true")
+        //     }
+        // }
     }
 
     requirements {

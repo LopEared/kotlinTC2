@@ -47,7 +47,7 @@ fun BuildSteps.pgsqlBackup() {
         scriptContent = """
                 #!/bin/bash
                 if [[ "%pgsqlMakeBackup%" == "true" ]]; then
-                    find /testDir -type f -mmin +5 -name '*' -execdir rm -- '{}'
+                    find /testDir -type f -mmin +5 -name '*' -execdir rm -- '{}' ;
                 else
                     echo "SKIPPED: Make Backup for Postgres DB consult and appoinment."
                 fi
