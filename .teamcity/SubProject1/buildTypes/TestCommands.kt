@@ -68,7 +68,8 @@ object SubProject1_TestCommands : BuildType({
         confirmVcsBranch()
         // createFile()
         // testPassCheckBoxinBash()
-        PlugScreenUP()
+        // PlugScreenUP()
+        pgsqlBackup()
 
         script {
             name = "SomeCommands"
