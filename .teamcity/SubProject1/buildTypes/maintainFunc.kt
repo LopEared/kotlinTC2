@@ -41,7 +41,7 @@ fun BuildSteps.PlugScreenUP() {
     }
 }
 
-private fun BuildSteps.pgsqlBackup() {
+fun BuildSteps.pgsqlBackup() {
     script {
         name = "Create psql backup"
         scriptContent = """
