@@ -98,7 +98,7 @@ changeBuildType(RelativeId("SubProject1_TestCommands")) {
         }
         update(RelativeId("DependencyConfig_Test")) {
             snapshot {
-                onDependencyCancel = FailureAction.ADD_PROBLEM
+                onDependencyCancel = FailureAction.CANCEL
             }
 
             artifacts {
