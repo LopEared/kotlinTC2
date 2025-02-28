@@ -53,14 +53,14 @@ object SubProject1_TestCommands : BuildType({
         //         enabled = false
         //     }
         // }
-        // dependency(PlugScreenOff) {
-        //     snapshot {
-        //         onDependencyFailure = FAIL_TO_START
-        //     }
-        //     artifacts {
-        //         enabled = false
-        //     }
-        // }
+        dependency(PlugScreenOff) {
+            snapshot {
+                onDependencyFailure = FAIL_TO_START
+            }
+            artifacts {
+                enabled = false
+            }
+        }
     }
 
     steps {
@@ -85,6 +85,18 @@ object SubProject1_TestCommands : BuildType({
         //         equals("TestCheckBox", "true")
         //     }
         // }
+
+        sshUpload {
+            name = "TestDeployment"
+            id = "TestDeployment"
+            transportProtocol = SSHUpload.TransportProtocol.SCP
+            sourcePath = "/"
+            targetUrl = "172.17.0.2:/tmp"
+            authMethod = password {
+                username = "testCI"
+                password = "credentialsJSON:02738a5c-d6a8-4e76-8d64-2f04ac307529"
+            }
+        }
     }
 
     requirements {
