@@ -29,14 +29,14 @@ object SubProject1_TestCommands : BuildType({
     }
 
     dependencies {
-        // dependency(DependencyConfig_Test) {
-        //     snapshot {
-        //         onDependencyFailure = FAIL_TO_START
-        //     }
-        //     artifacts {
-        //         enabled = false
-        //     }
-        // }
+        dependency(DependencyConfig_Test) {
+            snapshot {
+                onDependencyFailure = FAIL_TO_START
+            }
+            artifacts {
+                enabled = false
+            }
+        }
         // dependency(PlugScreenOn) {
         //     snapshot {
         //         onDependencyFailure = FAIL_TO_START
@@ -53,14 +53,14 @@ object SubProject1_TestCommands : BuildType({
         //         enabled = false
         //     }
         // }
-        dependency(PlugScreenOff) {
-            snapshot {
-                onDependencyFailure = FAIL_TO_START
-            }
-            artifacts {
-                enabled = false
-            }
-        }
+        // dependency(PlugScreenOff) {
+        //     snapshot {
+        //         onDependencyFailure = FAIL_TO_START
+        //     }
+        //     artifacts {
+        //         enabled = false
+        //     }
+        // }
     }
 
     steps {
