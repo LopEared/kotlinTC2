@@ -84,4 +84,28 @@ changeBuildType(RelativeId("SubProject1_TestCommands")) {
             }
         }
     }
+
+    dependencies {
+        expect(RelativeId("DependencyConfig_Test")) {
+            snapshot {
+                onDependencyFailure = FailureAction.FAIL_TO_START
+            }
+
+            artifacts {
+                artifactRules = ""
+                enabled = false
+            }
+        }
+        update(RelativeId("DependencyConfig_Test")) {
+            snapshot {
+                onDependencyCancel = FailureAction.ADD_PROBLEM
+            }
+
+            artifacts {
+                artifactRules = ""
+                enabled = false
+            }
+        }
+
+    }
 }
