@@ -68,8 +68,8 @@ object SubProject1_TestCommands : BuildType({
 
     steps {
         checkPassword()
-        confirmVcsBranch()
-        // confirmVcsBranchL2("%reverse.dep.${DependencyConfig_Test.id}.confirmVcsBranchName%")
+        // confirmVcsBranch()
+        confirmVcsBranchL2("%reverse.dep.${DependencyConfig_Test.id}.confirmVcsBranchName%")
         // createFile()
         // testPassCheckBoxinBash()
         // PlugScreenUP()
