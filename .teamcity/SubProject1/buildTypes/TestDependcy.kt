@@ -5,6 +5,8 @@ import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.BuildTypeSettings.Type.DEPLOYMENT
 import jetbrains.buildServer.configs.kotlin.FailureAction.FAIL_TO_START
 
+import SubProject1.buildTypes.SubProject1_TestCommands
+
 object DependencyConfig_Test : BuildType({
     name = "DependencyConfig_Test"
     description = "Dependency Config Test"
@@ -13,21 +15,23 @@ object DependencyConfig_Test : BuildType({
     enablePersonalBuilds = false
     maxRunningBuilds = 1
 
-    dependencies {
-        dependency(SubProject_Nest3_buildConfig) {
-            snapshot {
-                onDependencyFailure = FAIL_TO_START
-            }
+    // dependencies {
+    //     dependency(SubProject_Nest3_buildConfig) {
+    //         snapshot {
+    //             onDependencyFailure = FAIL_TO_START
+    //         }
     
-            artifacts {
-                enabled = false
-            }
-        }
-    }
+    //         artifacts {
+    //             enabled = false
+    //         }
+    //     }
+    // }
 
     params {
         text("FirstParam", "Value_First_Param", label = "1_Param: Iput value! ->")
         text("SecondParam", "Value_Second_Param", label = "2_Param: Iput value! ->")
+        text("confirmVcsBranchName", "", label = "Confirm branch name:", display = ParameterDisplay.PROMPT, allowEmpty = false)
+        param("reverse.dep.${SubProject1_TestCommands.id}.confirmVcsBranchName", confirmVcsBranchName)
     }
 
     vcs {
@@ -36,6 +40,11 @@ object DependencyConfig_Test : BuildType({
 
     steps {
         DependencyTest_FunctionStep()
+        script {
+                name = "TestPassVarIntoDependecy"
+                workingDir = "/"
+                scriptContent = """echo "%confirmVcsBranchName%" """
+            }
     }
 
     requirements {
