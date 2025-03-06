@@ -19,16 +19,14 @@ import jetbrains.buildServer.configs.kotlin.buildSteps.script
 // }
 
 fun BuildSteps.timeDelaySeconds(secDelay: String) {
-    step{
-        script {
-            name = "TimeDelay in seconds"
-            scriptContent = """
-                    #!/bin/bash
-                    echo "$secDelay"
-                    sleep "$secDelay"s
-                    echo "Finish delay in $secDelay"
-            """.trimIndent()
-        }
+    script {
+        name = "TimeDelay in seconds"
+        scriptContent = """
+                #!/bin/bash
+                echo "$secDelay"
+                sleep "$secDelay"s
+                echo "Finish delay in $secDelay"
+        """.trimIndent()
     }
 }
 
