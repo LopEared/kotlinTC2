@@ -5,7 +5,7 @@ import jetbrains.buildServer.configs.kotlin.buildSteps.script
 import jetbrains.buildServer.configs.kotlin.BuildTypeSettings.Type.DEPLOYMENT
 import jetbrains.buildServer.configs.kotlin.FailureAction.FAIL_TO_START
 
-import SubProject1.buildTypes.SubProject1_TestCommands
+import SubProject1.buildTypes.TestCommands
 
 object DependencyConfig_Test : BuildType({
     name = "DependencyConfig_Test"
