@@ -23,7 +23,7 @@ object SubProject1_TestCommands : BuildType({
         
         checkbox("TestCheckBox", "true", label = "Screen plug during process", description = "Will put up a screen plug before deployment and removed it after deployment.", display = ParameterDisplay.PROMPT, checked = "true", unchecked = "false")
         checkbox("pgsqlMakeBackup", "true", label = "Backup Postgres DB", description = "Make Backup for Postgres DB:consult and appoinment.", display = ParameterDisplay.PROMPT, checked = "true", unchecked = "false")
-        val envFile = getTextFromFile("SubProject1/recources/testFile.txt")
+        val envFile = "TEST NOTE!"
     
         // text("confirmVcsBranchName", "", label = "Confirm branch name:", display = ParameterDisplay.PROMPT, allowEmpty = false)
         // param("reverse.dep.${DependencyConfig_Test.id}.confirmVcsBranchName", "", label = "Confirm branch name:", display = ParameterDisplay.PROMPT, allowEmpty = false )
