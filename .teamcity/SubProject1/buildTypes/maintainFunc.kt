@@ -24,7 +24,7 @@ fun BuildSteps.timeDelaySeconds(secDelay: String) {
         scriptContent = """
                 #!/bin/bash
                 echo ""%secDelay%""
-                sleep "%secDelay%"
+                sleep "%secDelay%"s
                 echo "Finish delay in %secDelay%"
         """.trimIndent()
     }
