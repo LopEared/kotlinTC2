@@ -2,6 +2,7 @@ package _self
 
 import jetbrains.buildServer.configs.kotlin.BuildSteps
 import jetbrains.buildServer.configs.kotlin.buildSteps.script
+import java.io.File
 
 fun BuildSteps.initAppVersion(versionPostfix: String = "") {
     script {
@@ -70,3 +71,5 @@ fun BuildSteps.duplicateParam(initialParamName: String, vararg otherParamNames: 
             .replace("$!", "$")
     }
 }
+
+fun getTextFromFile(pathname: String): String = File(pathname).readText().trimIndent()
