@@ -16,5 +16,11 @@ changeBuildType(RelativeId("SubProject1_TestCommands")) {
         update {
             password("password", "credentialsJSON:88b29559-f978-4cc6-a1ab-34d1a44d9959", label = "Password", description = "Input password to start build", display = ParameterDisplay.PROMPT)
         }
+        expect {
+            param("reverse.dep.NewRoot_DependencyConfig_Test.confirmVcsBranchName", "%confirmVcsBranchName%")
+        }
+        update {
+            param("reverse.dep.NewRoot_DependencyConfig_Test.confirmVcsBranchName", "confirmVcsBranchName")
+        }
     }
 }
