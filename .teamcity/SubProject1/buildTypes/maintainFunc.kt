@@ -19,17 +19,25 @@ import jetbrains.buildServer.configs.kotlin.buildSteps.script
 // }
 
 fun BuildSteps.timeDelaySeconds(secDelay: String) {
-    script {
-        name = "TimeDelay in seconds"
-        scriptContent = """
-                #!/bin/bash
-                echo ""%secDelay%""
-                sleep "%secDelay%"s
-                echo "Finish delay in %secDelay%"
-        """.trimIndent()
+    step{
+        script {
+            name = "TimeDelay in seconds"
+            scriptContent = """
+                    #!/bin/bash
+                    echo "$secDelay"
+                    sleep "$secDelay"s
+                    echo "Finish delay in $secDelay"
+            """.trimIndent()
+        }
     }
 }
 
+// fun BuildSteps.stopApps(port: String, service: String) {
+//     step {
+//         name = "Stop $service"
+//         sshExec(port, "sudo systemctl stop $service")
+//     }
+// }
 
 fun BuildSteps.PlugScreenUP() {
     script {
