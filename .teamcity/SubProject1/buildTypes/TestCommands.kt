@@ -20,7 +20,7 @@ object SubProject1_TestCommands : BuildType({
         password("deploy_pass", "credentialsJSON:3d93ad41-aacd-4523-8208-9f4cb2ca9531", display = ParameterDisplay.HIDDEN, readOnly = true)
         password("password", "", label = "Password", description = "Input password to start build", display = ParameterDisplay.PROMPT)
         text("confirmVcsBranchName", "", label = "Confirm branch name:", display = ParameterDisplay.PROMPT, allowEmpty = false)
-        param("reverse.dep.${DependencyConfig_Test.id}.confirmVcsBranchName", "%confirmVcsBranchName%")
+        param("reverse.dep.${DependencyConfig_Test.id}.confirmVcsBranchName", confirmVcsBranchName)
         checkbox("TestCheckBox", "true", label = "Screen plug during process", description = "Will put up a screen plug before deployment and removed it after deployment.", display = ParameterDisplay.PROMPT, checked = "true", unchecked = "false")
         checkbox("pgsqlMakeBackup", "true", label = "Backup Postgres DB", description = "Make Backup for Postgres DB:consult and appoinment.", display = ParameterDisplay.PROMPT, checked = "true", unchecked = "false")
     }
