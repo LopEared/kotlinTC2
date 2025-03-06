@@ -19,8 +19,8 @@ object SubProject1_TestCommands : BuildType({
     params {
         password("deploy_pass", "credentialsJSON:3d93ad41-aacd-4523-8208-9f4cb2ca9531", display = ParameterDisplay.HIDDEN, readOnly = true)
         password("password", "", label = "Password", description = "Input password to start build", display = ParameterDisplay.PROMPT)
-        text("confirmVcsBranchName", "", label = "Confirm branch name:", display = ParameterDisplay.PROMPT, allowEmpty = false)
-        param("reverse.dep.${DependencyConfig_Test.id}.confirmVcsBranchName", "%dep.${SubProject1_TestCommands.id}.confirmVcsBranchName%" )
+        // text("confirmVcsBranchName", "", label = "Confirm branch name:", display = ParameterDisplay.PROMPT, allowEmpty = false)
+        param("reverse.dep.${DependencyConfig_Test.id}.confirmVcsBranchName", "", label = "Confirm branch name:", display = ParameterDisplay.PROMPT, allowEmpty = false )
         checkbox("TestCheckBox", "true", label = "Screen plug during process", description = "Will put up a screen plug before deployment and removed it after deployment.", display = ParameterDisplay.PROMPT, checked = "true", unchecked = "false")
         checkbox("pgsqlMakeBackup", "true", label = "Backup Postgres DB", description = "Make Backup for Postgres DB:consult and appoinment.", display = ParameterDisplay.PROMPT, checked = "true", unchecked = "false")
     }
@@ -66,7 +66,8 @@ object SubProject1_TestCommands : BuildType({
 
     steps {
         checkPassword()
-        confirmVcsBranch()
+        // confirmVcsBranch()
+        confirmVcsBranchL2("%reverse.dep.${DependencyConfig_Test.id}.confirmVcsBranchName%")
         // createFile()
         // testPassCheckBoxinBash()
         // PlugScreenUP()
@@ -104,3 +105,25 @@ object SubProject1_TestCommands : BuildType({
         equals("teamcity.agent.name", "ip_172.17.0.1")
     }
 })
+
+
+
+fun BuildSteps.confirmVcsBranchL2(inputedBranch: String) {
+    script {
+        name = "Сheck Selected Branch"
+        id = "Confirm VCS branch version"
+        scriptContent = """
+                #!/bin/bash
+                
+                echo "VCS branch is: '%teamcity.build.branch%'"
+                echo "Entered branch is: '$inputedBranch'"
+                
+                if [[ "%teamcity.build.branch%" == "$inputedBranch" ]]; then
+                	echo "Branches are equals -> OK!"
+                else
+                    echo "Entered branch is not equals VCS. Break build!"
+                    exit 1
+                fi
+                """.trimIndent()
+    }
+}
