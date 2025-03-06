@@ -18,6 +18,19 @@ import jetbrains.buildServer.configs.kotlin.buildSteps.script
 //     }
 // }
 
+fun BuildSteps.timeDelaySeconds(secDelay: String) {
+    script {
+        name = "TimeDelay in seconds"
+        scriptContent = """
+                #!/bin/bash
+                echo ""%secDelay%""
+                sleep "%secDelay%"
+                echo "Finish delay in %secDelay%"
+        """.trimIndent()
+    }
+}
+
+
 fun BuildSteps.PlugScreenUP() {
     script {
         name = "Plug Turn ON"

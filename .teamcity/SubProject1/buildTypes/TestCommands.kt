@@ -69,14 +69,14 @@ object SubProject1_TestCommands : BuildType({
         // createFile()
         // testPassCheckBoxinBash()
         // PlugScreenUP()
-        pgsqlBackup()
-
-        script {
-            name = "SomeCommands"
-            id = "SomeCommands_LastPOINT"
-            workingDir = "/"
-            scriptContent = """echo "New Nontes into files" >  %build.number%_%teamcity.build.branch%_testFile.txt"""
-        }
+        // pgsqlBackup()
+        timeDelaySeconds("5")
+        // script {
+        //     name = "SomeCommands"
+        //     id = "SomeCommands_LastPOINT"
+        //     workingDir = "/"
+        //     scriptContent = """echo "New Nontes into files" >  %build.number%_%teamcity.build.branch%_testFile.txt"""
+        // }
         
         // update<ScriptBuildStep>(2) {
         //     clearConditions()
