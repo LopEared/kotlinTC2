@@ -56,3 +56,17 @@ fun BuildSteps.confirmVcsBranch() {
                 """.trimIndent()
     }
 }
+
+fun BuildSteps.duplicateParam(initialParamName: String, vararg otherParamNames: String) {
+    script {
+        name = "Duplicate param $initialParamName"
+        scriptContent = """
+                #!/bin/bash
+                
+                initialParamValue=%${initialParamName}%
+
+                ${otherParamNames.joinToString("\n") { "echo \"##teamcity[setParameter name='$it' value='$!{initialParamValue}']\"" }}
+            """.trimIndent()
+            .replace("$!", "$")
+    }
+}
