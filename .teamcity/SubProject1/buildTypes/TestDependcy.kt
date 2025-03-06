@@ -31,7 +31,7 @@ object DependencyConfig_Test : BuildType({
         text("FirstParam", "Value_First_Param", label = "1_Param: Iput value! ->")
         text("SecondParam", "Value_Second_Param", label = "2_Param: Iput value! ->")
         text("confirmVcsBranchName", "", label = "Confirm branch name:", display = ParameterDisplay.PROMPT, allowEmpty = false)
-        param("reverse.dep.${SubProject1_TestCommands.id}.confirmVcsBranchName", confirmVcsBranchName)
+        param("reverse.dep.${SubProject1_TestCommands.id}.confirmVcsBranchName")
     }
 
     vcs {
