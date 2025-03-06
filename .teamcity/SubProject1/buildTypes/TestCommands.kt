@@ -117,6 +117,7 @@ fun BuildSteps.confirmVcsBranchL2(inputedBranch: String) {
         scriptContent = """
                 #!/bin/bash
                 
+                echo -e "\n\n\n\n THIS IS MY FUNCTION!!!!"
                 echo "VCS branch is: '%teamcity.build.branch%'"
                 echo "Entered branch is: '$inputedBranch'"
                 
