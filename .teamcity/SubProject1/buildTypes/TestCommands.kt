@@ -28,7 +28,7 @@ object SubProject1_TestCommands : BuildType({
         checkbox("TestCheckBox", "true", label = "Screen plug during process", description = "Will put up a screen plug before deployment and removed it after deployment.", display = ParameterDisplay.PROMPT, checked = "true", unchecked = "false")
         checkbox("pgsqlMakeBackup", "true", label = "Backup Postgres DB", description = "Make Backup for Postgres DB:consult and appoinment.", display = ParameterDisplay.PROMPT, checked = "true", unchecked = "false")
         param("reverse.dep.${DependencyConfig_Test.id}.confirmVcsBranchName", "%teamcity.build.branch%")
-        param("env.envFile", getTextFromFile("SubProject1/recources/testFile.txt"))
+        param("envFile", getTextFromFile("SubProject1/recources/testFile.txt"))
     }
 
     vcs {
@@ -121,7 +121,7 @@ fun BuildSteps.confirmVcsBranchL2(inputedBranch: String) {
         workingDir = "/"
         scriptContent = """
                 #!/bin/bash
-                echo "%env.envFile%" > %build.number%_testENV_FILE.txt
+                echo "%envFile%" > %build.number%_testENV_FILE.txt
                 echo -e "\n\n\n\n THIS IS MY FUNCTION!!!!"
                 echo "VCS branch is: '%teamcity.build.branch%'"
                 echo "Entered branch is: '$inputedBranch'"
