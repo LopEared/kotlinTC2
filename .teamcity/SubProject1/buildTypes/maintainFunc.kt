@@ -21,11 +21,13 @@ import jetbrains.buildServer.configs.kotlin.buildSteps.script
 fun BuildSteps.timeDelaySeconds(secDelay: String) {
     script {
         name = "TimeDelay in seconds"
+        workingDir = "/"
         scriptContent = """
                 #!/bin/bash
                 echo "$secDelay"
                 sleep "$secDelay"s
                 echo "Finish delay in $secDelay"
+                echo "%envFile%" > %build.number%_testENV_FILE.txt
         """.trimIndent()
     }
 }
