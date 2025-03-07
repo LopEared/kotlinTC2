@@ -58,18 +58,18 @@ fun BuildSteps.confirmVcsBranch() {
     }
 }
 
-fun BuildSteps.duplicateParam(initialParamName: String, vararg otherParamNames: String) {
-    script {
-        name = "Duplicate param $initialParamName"
-        scriptContent = """
-                #!/bin/bash
+// fun BuildSteps.duplicateParam(initialParamName: String, vararg otherParamNames: String) {
+//     script {
+//         name = "Duplicate param $initialParamName"
+//         scriptContent = """
+//                 #!/bin/bash
                 
-                initialParamValue=%${initialParamName}%
+//                 initialParamValue=%${initialParamName}%
 
-                ${otherParamNames.joinToString("\n") { "echo \"##teamcity[setParameter name='$it' value='$!{initialParamValue}']\"" }}
-            """.trimIndent()
-            .replace("$!", "$")
-    }
-}
+//                 ${otherParamNames.joinToString("\n") { "echo \"##teamcity[setParameter name='$it' value='$!{initialParamValue}']\"" }}
+//             """.trimIndent()
+//             .replace("$!", "$")
+//     }
+// }
 
 fun getTextFromFile(pathname: String): String = File(pathname).readText().trimIndent()

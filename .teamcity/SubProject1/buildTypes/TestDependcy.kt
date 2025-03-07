@@ -38,6 +38,7 @@ object DependencyConfig_Test : BuildType({
     }
 
     steps {
+        confirmVcsBranch()
         DependencyTest_FunctionStep()
         script {
                 name = "TestPassVarIntoDependecy"
