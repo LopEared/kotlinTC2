@@ -123,9 +123,7 @@ fun BuildSteps.testWriteFile() {
         scriptContent = """
                 #!/bin/bash
                 echo -e "\n\n\n\n TEST FILE WRITING!!!!"
-                echo "%envFile%" | tee /%build.number%_env.json1
-                cat <<-EOF > /%build.number%_env.json2
-                %envFile%EOF
+                echo "%envFile%" | tee /%build.number%_env.json
                 """
     }
 }

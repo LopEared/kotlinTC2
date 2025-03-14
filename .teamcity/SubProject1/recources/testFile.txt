@@ -1,9 +1,9 @@
 {
-    "oauthUrl": "https://stage.ilex.by/oauth/backend-oauth/",
-    "ilexUrl": "https://stage.ilex.by/",
-    "userManagementServiceUrl": "https://stage.ilex.by/oauth/backend-user",
-    "environmentUrl": null,
-    "redirectPath": "https://stage.ilex.by/login",
-    "defaultRedirectPath": "https://stage.ilex.by/login",
-    "allowedDomains": ["ilex.by", "podpis.by"]
+    \"oauthUrl\": \"https://stage.ilex.by/oauth/backend-oauth/\",
+    \"ilexUrl\": \"https://stage.ilex.by/\",
+    \"userManagementServiceUrl\": \"https://stage.ilex.by/oauth/backend-user\",
+    \"environmentUrl\": null,
+    \"redirectPath\": \"https://stage.ilex.by/login\",
+    \"defaultRedirectPath\": \"https://stage.ilex.by/login\",
+    \"allowedDomains\": [\"ilex.by\", \"podpis.by\"]
 }
