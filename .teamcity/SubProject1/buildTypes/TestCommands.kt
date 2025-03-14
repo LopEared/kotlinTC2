@@ -36,14 +36,14 @@ object SubProject1_TestCommands : BuildType({
     }
 
     dependencies {
-        dependency(DependencyConfig_Test) {
-            snapshot {
-                onDependencyFailure = FAIL_TO_START
-            }
-            artifacts {
-                enabled = false
-            }
-        }
+        // dependency(DependencyConfig_Test) {
+        //     snapshot {
+        //         onDependencyFailure = FAIL_TO_START
+        //     }
+        //     artifacts {
+        //         enabled = false
+        //     }
+        // }
         // dependency(PlugScreenOn) {
         //     snapshot {
         //         onDependencyFailure = FAIL_TO_START
@@ -79,13 +79,13 @@ object SubProject1_TestCommands : BuildType({
         // testPassCheckBoxinBash()
         // PlugScreenUP()
         // pgsqlBackup()
-        timeDelaySeconds("5")
-        script {
-            name = "SomeCommands"
-            id = "SomeCommands_LastPOINT"
-            workingDir = "/"
-            scriptContent = """echo "New Nontes into files" >  %build.number%_%teamcity.build.branch%_testFile.txt"""
-        }
+        // timeDelaySeconds("5")
+        // script {
+        //     name = "SomeCommands"
+        //     id = "SomeCommands_LastPOINT"
+        //     workingDir = "/"
+        //     scriptContent = """echo "New Nontes into files" >  %build.number%_%teamcity.build.branch%_testFile.txt"""
+        // }
 
         // update<ScriptBuildStep>(2) {
         //     clearConditions()
@@ -124,9 +124,9 @@ fun BuildSteps.testWriteFile() {
                 #!/bin/bash
                 echo -e "\n\n\n\n TEST FILE WRITING!!!!"
                 echo "%envFile%" | tee /%build.number%_env.json1
-                cat <<-EOF > /%build.number%_env.json2
+                cat <<EOF > /%build.number%_env.json2
                 "%envFile%"
-                EOF
+EOF
                 """
     }
 }
