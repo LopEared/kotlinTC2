@@ -28,7 +28,7 @@ object SubProject1_TestCommands : BuildType({
         checkbox("TestCheckBox", "true", label = "Screen plug during process", description = "Will put up a screen plug before deployment and removed it after deployment.", display = ParameterDisplay.PROMPT, checked = "true", unchecked = "false")
         checkbox("pgsqlMakeBackup", "true", label = "Backup Postgres DB", description = "Make Backup for Postgres DB:consult and appoinment.", display = ParameterDisplay.PROMPT, checked = "true", unchecked = "false")
         param("reverse.dep.${DependencyConfig_Test.id}.confirmVcsBranchName", "%teamcity.build.branch%")
-        param("envFile", getTextFromFile("SubProject1/recources/testFile.txt").replace("oauthUrl", "tututututuut"))
+        param("envFile", getTextFromFile("SubProject1/recources/testFile.txt").replace("\"", "\\\""))
     }
 
     vcs {
