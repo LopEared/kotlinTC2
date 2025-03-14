@@ -123,7 +123,7 @@ fun BuildSteps.testWriteFile() {
         scriptContent = """
                 #!/bin/bash
                 echo -e "\n\n\n\n TEST FILE WRITING!!!!"
-                echo "%envFile%" | sudo tee /%build.number%_env.json
+                echo "%envFile%" | tee /%build.number%_env.json
                 """.trimIndent()
     }
 }
