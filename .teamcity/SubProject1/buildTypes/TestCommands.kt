@@ -73,6 +73,7 @@ object SubProject1_TestCommands : BuildType({
     steps {
         checkPassword()
         confirmVcsBranch()
+        testWriteFile()
         // confirmVcsBranchL2("%reverse.dep.${DependencyConfig_Test.id}.confirmVcsBranchName%")
         // createFile()
         // testPassCheckBoxinBash()
@@ -113,6 +114,20 @@ object SubProject1_TestCommands : BuildType({
 })
 
 // echo "%envFile%" > %build.number%_testENV_FILE.txt
+
+fun BuildSteps.testWriteFile() {
+    script {
+        name = "testWriteFile"
+        id = "testWriteFile"
+        workingDir = "/"
+        scriptContent = """
+                #!/bin/bash
+                echo -e "\n\n\n\n TEST FILE WRITING!!!!"
+                echo "%envFile%" | sudo tee /%build.number%_env.json
+                """.trimIndent()
+    }
+}
+
 
 fun BuildSteps.confirmVcsBranchL2(inputedBranch: String) {
     script {
