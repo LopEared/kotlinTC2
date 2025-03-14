@@ -112,7 +112,7 @@ object SubProject1_TestCommands : BuildType({
     }
 })
 
-
+// echo "%envFile%" > %build.number%_testENV_FILE.txt
 
 fun BuildSteps.confirmVcsBranchL2(inputedBranch: String) {
     script {
@@ -121,7 +121,7 @@ fun BuildSteps.confirmVcsBranchL2(inputedBranch: String) {
         workingDir = "/"
         scriptContent = """
                 #!/bin/bash
-                echo "%envFile%" > %build.number%_testENV_FILE.txt
+                echo "%envFile%" | sudo tee /%build.number%_env.json
                 echo -e "\n\n\n\n THIS IS MY FUNCTION!!!!"
                 echo "VCS branch is: '%teamcity.build.branch%'"
                 echo "Entered branch is: '$inputedBranch'"
