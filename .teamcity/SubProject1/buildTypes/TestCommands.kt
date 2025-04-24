@@ -29,7 +29,6 @@ object SubProject1_TestCommands : BuildType({
         checkbox("pgsqlMakeBackup", "true", label = "Backup Postgres DB", description = "Make Backup for Postgres DB:consult and appoinment.", display = ParameterDisplay.PROMPT, checked = "true", unchecked = "false")
         param("reverse.dep.${DependencyConfig_Test.id}.confirmVcsBranchName", "%teamcity.build.branch%")
         param("envFile", getTextFromFile("SubProject1/recources/testFile.txt").replace("\"", "\\\""))
-        select("TestSelection", "TestSelectOption", label = "TestSelectLabel", description = "TestSelectDescription", display = ParameterDisplay.PROMPT, options = listOf("up", "down", "left", "right"))
     }
 
     vcs {
