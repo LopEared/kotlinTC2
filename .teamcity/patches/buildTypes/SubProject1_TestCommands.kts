@@ -17,4 +17,13 @@ changeBuildType(RelativeId("SubProject1_TestCommands")) {
             password("password", "credentialsJSON:8f402952-ee18-4eb0-8c12-eeb280dc5e6e", label = "Password", description = "Input password to start build", display = ParameterDisplay.PROMPT)
         }
     }
+
+    requirements {
+        remove {
+            equals("teamcity.agent.name", "ip_172.17.0.1")
+        }
+        add {
+            equals("teamcity.agent.name", " agent1_ip_172.17.0.1")
+        }
+    }
 }
